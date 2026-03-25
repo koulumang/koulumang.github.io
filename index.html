@@ -1,225 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Umang Koul - Portfolio</title>
+  <title>Umang Koul - Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f6f6f6;
-      color: #333;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     header {
-      background-color: #2c3e50;
-      color: #ecf0f1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      margin-bottom: 10px;
-      font-size: 36px;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    p {
-      margin-bottom: 10px;
+    .tagline {
+      font-size: 1.5rem;
+      color: #a0a0a0;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #667eea;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
     }
 
     section {
-      background-color: #fff;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 5rem 0;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    ul {
-      padding: 0;
-      margin: 0;
+    .experience-item, .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
 
-    ul li {
-      margin-bottom: 10px;
+    .experience-item:hover, .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+      border-color: rgba(102, 126, 234, 0.5);
     }
 
-    section.projects {
-      background-color: #f9f9f9;
-      padding: 20px;
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
-    .project {
-      margin-bottom: 20px;
+    .company {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #667eea;
     }
 
-    .project h3 {
-      color: #2c3e50;
+    .role {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      margin-bottom: 0.5rem;
     }
 
-    .project a {
-      color: #3498db;
+    .location-date {
+      color: #808080;
+      font-size: 0.95rem;
+    }
+
+    .achievements {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .achievements li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .achievements li:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-size: 1.2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-category {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-category h3 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(102, 126, 234, 0.2);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+    }
+
+    .project-card h3 {
+      color: #667eea;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      color: #764ba2;
     }
 
     footer {
       text-align: center;
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #2c3e50;
-      color: #ecf0f1;
+      padding: 3rem 0;
+      color: #808080;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+      }
+
+      .job-header {
+        flex-direction: column;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Umang Koul</h1>
-    <p>Software Developer</p>
-    <p>Email: koulumang@gmail.com</p>
-    <p class="project">Git: <a href="https://github.com/koulumang" target="_blank">github.com/koulumang</a></p>
-    <p class="project">LinkedIn: <a href="https://www.linkedin.com/in/umang-koul/"
-        target="_blank">linkedin.com/in/umang-koul</a></p>
+    <div class="hero-content">
+      <h1>Umang Koul</h1>
+      <p class="tagline">Software Development Engineer @ AWS</p>
+      <p style="color: #a0a0a0; margin-bottom: 1rem;">Building scalable systems & cloud infrastructure</p>
+      <div class="social-links">
+        <a href="mailto:koulumang@gmail.com">Email</a>
+        <a href="https://github.com/koulumang" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/umang-koul/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Experience</h2>
-    <p><strong>Amazon Web Services</strong></p>
-    <p>Seattle, WA • May 2023 - Aug 2023</p>
-    <p><em>Software Dev Engineer Intern</em></p>
-    <ul>
-      <li>Streamlined AWS Console Search with LLM.</li>
-      <ul>
-        <li>Engineered innovative solution to reduce manual input and clicks, enhancing user experience by enabling
-          intuitive
-          search criteria in AWS console.</li>
-        <li>Created an API with back-end in Python for invoking the Large Language Model hosted on AWS SageMaker.</li>
-        <li>Led integration of Large Language Model into AWS console, delivering streamlined search with natural
-          language
-          filtering via the new API.</li>
-      </ul>
-    </ul>
+  <div class="container">
+    <section id="experience">
+      <h2>Experience</h2>
 
-    <ul>
-      <li>Click-stream Analysis Optimization</li>
-      <ul>
-        <li>Successfully addressed the challenge of analyzing customer interactions within AWS consoles. Utilized click
-          stream
-          analysis to extract insights into user behavior and strategically enhance web page layout, resulting in an
-          improved
-          customer experience.</li>
-        <li>Utilizing the newly developed in-house framework, our team significantly reduced the time required to
-          analyze real-time
-          data availability from months to just a few seconds.</li>
-        <li>Through the adoption of this new framework, the team gained the capability to visually assess the effects of
-          launching
-          new features.</li>
-      </ul>
-    </ul>
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="company">Amazon Web Services</div>
+            <div class="role">Software Development Engineer I</div>
+          </div>
+          <div class="location-date">Atlanta, GA • Jun 2024 – Present</div>
+        </div>
+        <ul class="achievements">
+          <li>Led end-to-end design of greenfield PKI-based issuance service using Smithy and AWS Step Functions for asynchronous certificate processing</li>
+          <li>Engineered system to handle 10,000 TPS with distributed idempotency tracking via DynamoDB and chunking strategies for exactly-once execution</li>
+          <li>Orchestrated EC2 to Serverless migration (API Gateway, Lambda) achieving 97% infrastructure cost reduction while maintaining high-burst scalability</li>
+          <li>Developed AWS CDK "Common Constructs" standardizing monitoring for Lambda, API Gateway, and DDB with automated Sev2/Sev3 alarm creation</li>
+          <li>Led JDK 17 migration across 20+ microservice pipelines, resolving integration test failures and modernizing security postures</li>
+          <li>Built React frontend for CloudWatch Third-Party Integrations (3PI) showcased at re:Invent 2024 with Panorama Funnel Reports and trend charts</li>
+        </ul>
+      </div>
 
-    <p><strong>Colorado State University</strong></p>
-    <p>Fort Collins, CO • Jan 2023 – May 2023</p>
-    <p><em>Graduate Teaching Assistant</em></p>
-    <ul>
-      <li>Graduate Teaching Assistant for CS 430, Database Management Systems for Spring 2023 under the supervision of
-        Dr. Indrakshi Ray.</li>
-      <li>Responsibilities: Holding TA hours, grading assignments, writing assignments, preparing support code, and
-        presenting
-        supplemental material for the class</li>
-    </ul>
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="company">Amazon Web Services</div>
+            <div class="role">Software Development Engineer Intern</div>
+          </div>
+          <div class="location-date">Seattle, WA • May 2023 – Aug 2023</div>
+        </div>
+        <ul class="achievements">
+          <li>Built Python-based ML inference API on AWS SageMaker powering intelligent search in AWS Systems Manager Console</li>
+          <li>Optimized large-scale clickstream ETL pipelines, reducing processing latency for near real-time analytics</li>
+        </ul>
+      </div>
 
-    <p><strong>Infosys</strong></p>
-    <p>Bangalore, India • Aug 2019 - Jun 2022</p>
-    <p><em>Senior Systems Engineer</em></p>
-    <ul>
-      <li>Constructed RESTful APIs through the Spring Boot framework across presentation, business, and database tiers.
-      </li>
-      <li>Produced highly scalable and optimized Java classes, ensuring their applicability throughout the application
-        and
-        complete
-        coverage of Junit test cases.</li>
-      <li>Developed a low-latency Authorization framework for the project, integrating JWT token-based authentication
-      </li>
-      <li>Mentored new joiners in the Development team and was involved in coding, testing, debugging, and code reviews.
-      </li>
-      <li>Environment: Java, Spring Boot, JDBC, REST, Log4J2, Bamboo, Git.</li>
-    </ul>
-  </section>
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="company">Infosys</div>
+            <div class="role">Senior Systems Engineer</div>
+          </div>
+          <div class="location-date">Bangalore, India • Aug 2019 – Jun 2022</div>
+        </div>
+        <ul class="achievements">
+          <li>Designed scalable RESTful backend services using Java and Spring Boot for high-volume enterprise workflows</li>
+          <li>Built low-latency JWT-based RBAC authorization framework securing APIs and reducing authentication overhead</li>
+          <li>Improved system reliability through structured logging, centralized exception handling, and CI/CD automation</li>
+        </ul>
+      </div>
+    </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">AWS CDK</span>
+            <span class="skill-tag">Smithy</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>AWS Services</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Lambda</span>
+            <span class="skill-tag">API Gateway</span>
+            <span class="skill-tag">DynamoDB</span>
+            <span class="skill-tag">Step Functions</span>
+            <span class="skill-tag">SageMaker</span>
+            <span class="skill-tag">CloudWatch</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>DevOps & Databases</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>Explorative Analytics of an Evolving Citation Network using Apache Spark</h3>
-      <p>Perform computations to investigate growth patterns of citation networks using Apache Spark. Analyzed a
-        continuously
-        evolving temporal network.</p>
-      <p>Repository Link: <a
-          href="https://github.com/koulumang/CSU-CS535/tree/main/Explorative%20Analytics%20of%20an%20Evolving%20Citation%20Network%20using%20Apache%20Spark"
-          target="_blank">GitHub</a></p>
-    </div>
+    <section id="projects">
+      <h2>Projects & Publications</h2>
 
-    <div class="project">
-      <h3>Hand-Hover-Writing</h3>
-      <p>This is a program designed to allow users to write by simply hovering their hand over a surface, without
-        actually
-        touching it. The program uses computer vision to track the user's hand movements and convert them into digital
-        text.
-      </p>
-      <p>Repository Link: <a href="https://github.com/koulumang/Hand-Hover-Writing" target="_blank">GitHub</a></p>
-    </div>
+      <div class="project-card">
+        <h3>Automated Code Review Monitoring Tooling</h3>
+        <p>Developed internal productivity suite using Tampermonkey and Slack API to monitor pending CRUX events, increasing merge velocity across the team.</p>
+      </div>
 
-    <div class="project">
-      <h3>Detecting the Most Popular Topics from Twitter using the Lossy Counting Algorithm with Apache Storm</h3>
-      <p>The goal of this project was to detect the most frequently occurring hash tags and named-entities from Twitter
-        data
-        stream and calculate sentiment values.</p>
-      <p>Repository Link: <a
-          href="https://github.com/koulumang/CSU-CS535/tree/main/Detecting%20the%20Most%20Popular%20Topics%20from%20Live%20Twitter%20Message%20Streams%20using%20the%20Lossy%20Counting%20Algorithm%20with%20Apache%20Storm"
-          target="_blank">GitHub</a></p>
-    </div>
+      <div class="project-card">
+        <h3>Explorative Analytics of Citation Networks</h3>
+        <p>Performed large-scale computations to investigate growth patterns of citation networks using Apache Spark, analyzing continuously evolving temporal networks.</p>
+        <p><a href="https://github.com/koulumang/CSU-CS535/tree/main/Explorative%20Analytics%20of%20an%20Evolving%20Citation%20Network%20using%20Apache%20Spark" target="_blank">View on GitHub →</a></p>
+      </div>
 
-  </section>
+      <div class="project-card">
+        <h3>Hand-Hover-Writing</h3>
+        <p>Computer vision program enabling users to write by hovering their hand over a surface, tracking hand movements and converting them into digital text.</p>
+        <p><a href="https://github.com/koulumang/Hand-Hover-Writing" target="_blank">View on GitHub →</a></p>
+      </div>
 
-  <section>
-    <h2>Publications</h2>
-    <p><strong>An Online Diet Recommendation System Based On Artificial Intelligence</strong></p>
-    <p>Jul 2018 - May 2019</p>
-    <p>The research paper seeks to introduce an AI dietitian that replicates the interactions with a human dietitian.
-      The
-      primary objective is to provide users with personalized diet recommendations based on their physical
-      characteristics and
-      daily routines.</p>
-    <p class="project">Paper Link: <a href="http://www.ijcseonline.isroset.org/pub_paper/193-IJCSE-06681-55.pdf"
-        target="_blank">GitHub</a></p>
-  </section>
-
-  <section>
-    <h2>Skill Sets</h2>
-    <p>Language: Java, MySQL, Python, PostgreSQL.</p>
-    <p>Framework: Spring Boot, JDBC, REST, Log4J2.</p>
-    <p>Tools: Bamboo, Git.</p>
-  </section>
-
-  <section>
-    <h2>Interests</h2>
-    <p>Back-End Development, Machine Learning</p>
-  </section>
+      <div class="project-card">
+        <h3>AI-Based Diet Recommendation System</h3>
+        <p>Published research introducing an AI dietitian that provides personalized diet recommendations based on physical characteristics and daily routines.</p>
+        <p><a href="http://www.ijcseonline.isroset.org/pub_paper/193-IJCSE-06681-55.pdf" target="_blank">Read Paper →</a></p>
+      </div>
+    </section>
+  </div>
 
   <footer>
-    <p>&copy; 2023 Umang Koul. All rights reserved.</p>
+    <p>&copy; 2024 Umang Koul. Built with passion for clean code and scalable systems.</p>
   </footer>
 </body>
-
 </html>
