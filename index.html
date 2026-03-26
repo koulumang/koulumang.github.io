@@ -3,424 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Umang Koul - Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #e0e0e0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      z-index: 2;
-      animation: fadeInUp 1s ease;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .tagline {
-      font-size: 1.5rem;
-      color: #a0a0a0;
-      margin-bottom: 2rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .social-links a {
-      color: #667eea;
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 0.8rem 1.5rem;
-      border: 2px solid #667eea;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: #667eea;
-      color: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-    }
-
-    section {
-      padding: 5rem 0;
-      animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      text-align: center;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .experience-item, .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .experience-item:hover, .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-      border-color: rgba(102, 126, 234, 0.5);
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .company {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #667eea;
-    }
-
-    .role {
-      font-size: 1.2rem;
-      color: #a0a0a0;
-      margin-bottom: 0.5rem;
-    }
-
-    .location-date {
-      color: #808080;
-      font-size: 0.95rem;
-    }
-
-    .achievements {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .achievements li {
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      position: relative;
-    }
-
-    .achievements li:before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #667eea;
-      font-size: 1.2rem;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .skill-category {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .skill-category h3 {
-      color: #667eea;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      background: rgba(102, 126, 234, 0.2);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-
-    .project-card h3 {
-      color: #667eea;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-card a {
-      color: #667eea;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .project-card a:hover {
-      color: #764ba2;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      color: #808080;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
-
-    .scroll-indicator::before {
-      content: "↓";
-      font-size: 2rem;
-      color: #667eea;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      40% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-      60% {
-        transform: translateX(-50%) translateY(-5px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .tagline {
-        font-size: 1.2rem;
-      }
-
-      .job-header {
-        flex-direction: column;
-      }
-
-      .social-links {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+  <title>Umang Koul - SDE @ AWS</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style-new.css">
 </head>
 <body>
-  <header>
-    <div class="hero-content">
-      <h1>Umang Koul</h1>
-      <p class="tagline">Software Development Engineer @ AWS</p>
-      <p style="color: #a0a0a0; margin-bottom: 1rem;">Building scalable systems & cloud infrastructure</p>
-      <div class="social-links">
-        <a href="mailto:koulumang@gmail.com">Email</a>
-        <a href="https://github.com/koulumang" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/umang-koul/" target="_blank">LinkedIn</a>
-      </div>
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="btn-close"></span>
+      <span class="btn-minimize"></span>
+      <span class="btn-maximize"></span>
     </div>
-    <div class="scroll-indicator" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})"></div>
-  </header>
-
-  <div class="container">
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <div>
-            <div class="company">Amazon Web Services</div>
-            <div class="role">Software Development Engineer I</div>
-          </div>
-          <div class="location-date">Atlanta, GA • Jun 2024 – Present</div>
-        </div>
-        <ul class="achievements">
-          <li>Led end-to-end design of greenfield PKI-based issuance service using Smithy and AWS Step Functions for asynchronous certificate processing</li>
-          <li>Engineered system to handle 10,000 TPS with distributed idempotency tracking via DynamoDB and chunking strategies for exactly-once execution</li>
-          <li>Orchestrated EC2 to Serverless migration (API Gateway, Lambda) achieving 97% infrastructure cost reduction while maintaining high-burst scalability</li>
-          <li>Developed AWS CDK "Common Constructs" standardizing monitoring for Lambda, API Gateway, and DDB with automated Sev2/Sev3 alarm creation</li>
-          <li>Led JDK 17 migration across 20+ microservice pipelines, resolving integration test failures and modernizing security postures</li>
-          <li>Built React frontend for CloudWatch Third-Party Integrations (3PI) showcased at re:Invent 2024 with Panorama Funnel Reports and trend charts</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <div>
-            <div class="company">Amazon Web Services</div>
-            <div class="role">Software Development Engineer Intern</div>
-          </div>
-          <div class="location-date">Seattle, WA • May 2023 – Aug 2023</div>
-        </div>
-        <ul class="achievements">
-          <li>Built Python-based ML inference API on AWS SageMaker powering intelligent search in AWS Systems Manager Console</li>
-          <li>Optimized large-scale clickstream ETL pipelines, reducing processing latency for near real-time analytics</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <div>
-            <div class="company">Infosys</div>
-            <div class="role">Senior Systems Engineer</div>
-          </div>
-          <div class="location-date">Bangalore, India • Aug 2019 – Jun 2022</div>
-        </div>
-        <ul class="achievements">
-          <li>Designed scalable RESTful backend services using Java and Spring Boot for high-volume enterprise workflows</li>
-          <li>Built low-latency JWT-based RBAC authorization framework securing APIs and reducing authentication overhead</li>
-          <li>Improved system reliability through structured logging, centralized exception handling, and CI/CD automation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Languages</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">SQL</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Frameworks & Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Spring Boot</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">AWS CDK</span>
-            <span class="skill-tag">Smithy</span>
-            <span class="skill-tag">REST APIs</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>AWS Services</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Lambda</span>
-            <span class="skill-tag">API Gateway</span>
-            <span class="skill-tag">DynamoDB</span>
-            <span class="skill-tag">Step Functions</span>
-            <span class="skill-tag">SageMaker</span>
-            <span class="skill-tag">CloudWatch</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>DevOps & Databases</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MySQL</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Projects & Publications</h2>
-
-      <div class="project-card">
-        <h3>Automated Code Review Monitoring Tooling</h3>
-        <p>Developed internal productivity suite using Tampermonkey and Slack API to monitor pending CRUX events, increasing merge velocity across the team.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>Explorative Analytics of Citation Networks</h3>
-        <p>Performed large-scale computations to investigate growth patterns of citation networks using Apache Spark, analyzing continuously evolving temporal networks.</p>
-        <p><a href="https://github.com/koulumang/CSU-CS535/tree/main/Explorative%20Analytics%20of%20an%20Evolving%20Citation%20Network%20using%20Apache%20Spark" target="_blank">View on GitHub →</a></p>
-      </div>
-
-      <div class="project-card">
-        <h3>Hand-Hover-Writing</h3>
-        <p>Computer vision program enabling users to write by hovering their hand over a surface, tracking hand movements and converting them into digital text.</p>
-        <p><a href="https://github.com/koulumang/Hand-Hover-Writing" target="_blank">View on GitHub →</a></p>
-      </div>
-
-      <div class="project-card">
-        <h3>AI-Based Diet Recommendation System</h3>
-        <p>Published research introducing an AI dietitian that provides personalized diet recommendations based on physical characteristics and daily routines.</p>
-        <p><a href="http://www.ijcseonline.isroset.org/pub_paper/193-IJCSE-06681-55.pdf" target="_blank">Read Paper →</a></p>
-      </div>
-    </section>
+    <div class="terminal-title">umang@aws:~$ portfolio --show</div>
   </div>
 
-  <footer>
-    <p>&copy; 2024 Umang Koul. Built with passion for clean code and scalable systems.</p>
+  <nav class="nav-bar">
+    <div class="nav-brand">UK</div>
+    <div class="nav-links">
+      <a href="#about">$ whoami</a>
+      <a href="#experience">$ work</a>
+      <a href="#skills">$ skills</a>
+      <a href="#projects">$ projects</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about" class="hero">
+      <div class="glitch-wrapper">
+        <h1 class="glitch" data-text="UMANG KOUL">UMANG KOUL</h1>
+      </div>
+      <div class="hero-subtitle">
+        <span class="typing-effect">Software Development Engineer @ Amazon Web Services</span>
+      </div>
+      <div class="hero-tags">
+        <span class="tag">#Serverless</span>
+        <span class="tag">#PKI</span>
+        <span class="tag">#DistributedSystems</span>
+        <span class="tag">#CloudInfra</span>
+      </div>
+      <div class="cta-buttons">
+        <a href="mailto:koulumang@gmail.com" class="btn-primary">CONTACT</a>
+        <a href="https://github.com/koulumang" target="_blank" class="btn-secondary">GITHUB</a>
+        <a href="https://www.linkedin.com/in/umang-koul/" target="_blank" class="btn-secondary">LINKEDIN</a>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2 class="section-title">
+        <span class="title-bracket">[</span>
+        EXPERIENCE
+        <span class="title-bracket">]</span>
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card">
+            <div class="card-header">
+              <div>
+                <h3>Amazon Web Services</h3>
+                <p class="role">Software Development Engineer I</p>
+              </div>
+              <div class="date-badge">JUN 2024 - PRESENT</div>
+            </div>
+            <div class="card-body">
+              <ul class="achievement-list">
+                <li>Led greenfield PKI issuance service (Smithy + Step Functions) → <strong>10K TPS</strong></li>
+                <li>EC2 → Serverless migration → <strong>97% cost reduction</strong></li>
+                <li>Built AWS CDK monitoring constructs for Lambda/API Gateway/DDB</li>
+                <li>JDK 17 migration across <strong>20+ microservices</strong></li>
+                <li>React frontend for CloudWatch 3PI @ <strong>re:Invent 2024</strong></li>
+              </ul>
+              <div class="tech-stack">
+                <span>Java</span><span>Python</span><span>React</span><span>AWS CDK</span><span>Lambda</span><span>DynamoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card">
+            <div class="card-header">
+              <div>
+                <h3>Amazon Web Services</h3>
+                <p class="role">Software Development Engineer Intern</p>
+              </div>
+              <div class="date-badge">MAY 2023 - AUG 2023</div>
+            </div>
+            <div class="card-body">
+              <ul class="achievement-list">
+                <li>ML inference API on SageMaker for AWS Systems Manager Console</li>
+                <li>Optimized clickstream ETL → near real-time analytics</li>
+              </ul>
+              <div class="tech-stack">
+                <span>Python</span><span>SageMaker</span><span>ETL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card">
+            <div class="card-header">
+              <div>
+                <h3>Infosys</h3>
+                <p class="role">Senior Systems Engineer</p>
+              </div>
+              <div class="date-badge">AUG 2019 - JUN 2022</div>
+            </div>
+            <div class="card-body">
+              <ul class="achievement-list">
+                <li>Scalable RESTful services (Spring Boot) for enterprise workflows</li>
+                <li>JWT-based RBAC framework reducing auth overhead</li>
+                <li>CI/CD automation + structured logging</li>
+              </ul>
+              <div class="tech-stack">
+                <span>Java</span><span>Spring Boot</span><span>JWT</span><span>REST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title">
+        <span class="title-bracket">[</span>
+        TECH STACK
+        <span class="title-bracket">]</span>
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h4>LANGUAGES</h4>
+          <div class="skill-items">
+            <span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h4>FRAMEWORKS</h4>
+          <div class="skill-items">
+            <span>Spring Boot</span><span>React</span><span>AWS CDK</span><span>Smithy</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h4>AWS</h4>
+          <div class="skill-items">
+            <span>Lambda</span><span>API Gateway</span><span>DynamoDB</span><span>Step Functions</span><span>SageMaker</span><span>CloudWatch</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h4>TOOLS</h4>
+          <div class="skill-items">
+            <span>Git</span><span>CI/CD</span><span>PostgreSQL</span><span>MySQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">
+        <span class="title-bracket">[</span>
+        PROJECTS & PUBLICATIONS
+        <span class="title-bracket">]</span>
+      </h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-number">01</div>
+          <h3>Code Review Monitoring Tool</h3>
+          <p>Internal productivity suite (Tampermonkey + Slack API) for CRUX event monitoring</p>
+          <div class="project-tags">
+            <span>JavaScript</span><span>Slack API</span><span>Automation</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-number">02</div>
+          <h3>Citation Network Analytics</h3>
+          <p>Apache Spark analysis of evolving temporal citation networks</p>
+          <a href="https://github.com/koulumang/CSU-CS535" target="_blank" class="project-link">VIEW →</a>
+          <div class="project-tags">
+            <span>Apache Spark</span><span>Big Data</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-number">03</div>
+          <h3>Hand-Hover-Writing</h3>
+          <p>Computer vision for touchless hand-tracking text input</p>
+          <a href="https://github.com/koulumang/Hand-Hover-Writing" target="_blank" class="project-link">VIEW →</a>
+          <div class="project-tags">
+            <span>Computer Vision</span><span>Python</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-number">04</div>
+          <h3>AI Diet Recommendation</h3>
+          <p>Published research on ML-based personalized nutrition</p>
+          <a href="http://www.ijcseonline.isroset.org/pub_paper/193-IJCSE-06681-55.pdf" target="_blank" class="project-link">PAPER →</a>
+          <div class="project-tags">
+            <span>Machine Learning</span><span>Research</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 UMANG KOUL — Building at scale, one Lambda at a time</p>
+      <div class="footer-links">
+        <a href="https://github.com/koulumang" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/umang-koul/" target="_blank">LinkedIn</a>
+        <a href="mailto:koulumang@gmail.com">Email</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
