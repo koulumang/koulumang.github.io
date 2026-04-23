@@ -12,6 +12,15 @@
   --aws-blue: #232f3e;
 }
 
+[data-theme="light"] {
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #e8e2d5;
+  --bg-card: #ede7da;
+  --text-primary: #1a1d23;
+  --text-secondary: #5a6070;
+  --border-color: #c8bfb0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -83,6 +92,24 @@ body {
 .nav-links {
   display: flex;
   gap: 2rem;
+  align-items: center;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
 }
 
 .nav-links a {

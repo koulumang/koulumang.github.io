@@ -24,6 +24,7 @@
       <a href="#experience">$ work</a>
       <a href="#skills">$ skills</a>
       <a href="#projects">$ projects</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">[ ☀ ]</button>
     </div>
   </nav>
 
@@ -225,6 +226,29 @@
       </div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = '[ ☾ ]';
+      }
+      btn.addEventListener('click', function () {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'dark');
+          btn.textContent = '[ ☀ ]';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          btn.textContent = '[ ☾ ]';
+        }
+      });
+    })();
+  </script>
 
   <footer class="footer">
     <div class="footer-content">
